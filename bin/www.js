@@ -7,7 +7,7 @@
 // Require is used to import code from an external file
 var app = require('../app');
 // Importing an external dependency
-var debug = require('debug')('projnotes-2023a:server');
+var debug = require('debug')('projnotes');
 // Module that allows to communicate with a client using HTTP protocol
 var http = require('http');
 
