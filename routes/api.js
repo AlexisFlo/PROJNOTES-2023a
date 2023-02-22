@@ -9,7 +9,7 @@ router.get('/author',function(req, res){
     "name":"Alepsis",
     "lastname":"Flores",
     "twitter":"@alexisflowersf",
-    "job":""
+    "job":"Student"
     })
 });
 
