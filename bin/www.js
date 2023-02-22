@@ -92,5 +92,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   // debug('Listening on ' + bind);
-  debug(`⭐⭐Listening on ${process.env.URL_APP}:${addr.PORT} ⭐⭐`)
+  debug(`⭐⭐Listening on ${process.env.APP_URL}:${addr.port} ⭐⭐`)
 }
