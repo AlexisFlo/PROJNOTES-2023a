@@ -23,7 +23,7 @@ app.set('port', port); // (req, res) => {actions}
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app); // req información de la petición, res métodos para responder
 
 /**
  * Listen on provided port, on all network interfaces.

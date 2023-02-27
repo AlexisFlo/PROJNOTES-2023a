@@ -14,17 +14,35 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
+// We are creating the express instance
 var app = express();
 
 // view engine setup
+// We are declaring the localization of the views
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// Registering middlewares
+/* app.use((req, res, next) => {
+  console.log("👀 We have  received a request");
+  next ();
+});
+app.use((req, res, next) => {
+  console.log(`😬IP: ${req.ip}`);
+  console.log(`🤔 METHOD: ${req.method}`);
+  next();
+}); */
+
+// Log all received requests
 app.use(logger('dev'));
+// Parse request data into json
 app.use(express.json());
+// Decode url info
 app.use(express.urlencoded({ extended: false }));
+// Parse client cookies into json
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// Set up the static file server
+app.use(express.static(path.join(__dirname, 'public'))); // app.use(express.static(ruta))
 
 // Registering routes
 app.use('/', indexRouter);
