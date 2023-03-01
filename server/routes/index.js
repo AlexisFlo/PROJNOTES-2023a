@@ -12,7 +12,7 @@ router.get('/author',(req, res)=>{
   // Creating a View-model
   let author = {
     "name": "Alepsis",
-    "lastname": "Flores",
+    "lastname": "Flowers",
     "twitter": "@alexisflowersf",
     "job": "Student"
   };
