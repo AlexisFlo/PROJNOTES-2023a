@@ -1,37 +1,26 @@
 // Helps to handle http errors
-var createError = require('http-errors');
+const createError = require('http-errors');
 // Import the express library
-var express = require('express');
+const express = require('express');
 // Is a Core-Node library to manage system paths
-var path = require('path');
+const path = require('path');
 // Helps to parse client cookies
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 // Library to log http communication
-var logger = require('morgan');
+const logger = require('morgan'); // Change var with const
 
 // Importing subroutes
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var apiRouter = require('./routes/api');
+const indexRouter = require('./routes/index'); // Change var with const
+const usersRouter = require('./routes/users');
+const apiRouter = require('./routes/api');
 
 // We are creating the express instance
-var app = express();
+const app = express(); // Change var with let
 
 // view engine setup
 // We are declaring the localization of the views
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-// Registering middlewares
-/* app.use((req, res, next) => {
-  console.log("👀 We have  received a request");
-  next ();
-});
-app.use((req, res, next) => {
-  console.log(`😬IP: ${req.ip}`);
-  console.log(`🤔 METHOD: ${req.method}`);
-  next();
-}); */
 
 // Log all received requests
 app.use(logger('dev'));
@@ -47,15 +36,15 @@ app.use(express.static(path.join(__dirname, 'public'))); // app.use(express.stat
 // Registering routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use(apiRouter);
+app.use('/api',apiRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => { // Change the function with arrow function
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => { // Change the function with arrow function
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

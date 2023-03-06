@@ -1,10 +1,10 @@
 // Importing Express library
-var express = require('express');
+const express = require('express'); // Change var with let
 // Creating a Router Instance
-var router = express.Router();
+const router = express.Router();
 
 // Creating the route
-router.get('/author',function(req, res){
+router.get('/author', (req, res) => { // Change to an arrow function
    res.json ({
     "name":"Alepsis",
     "lastname":"Flowers",
