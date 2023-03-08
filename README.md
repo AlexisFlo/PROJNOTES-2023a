@@ -11,3 +11,9 @@ This project will be developed in ECMAScript 6 (ES6) and run on a Node.js runtim
 
 ## Project notes
 1. [Project creation](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Project-creation.md)
+2. [Repository creation]()
+3. [Creating dedicated Backend directory]()
+4. [Adding Babel]()
+5. [Updating to ES6]()
+6. [Build Script]()
+7. [Babel plugins]()
