@@ -7,8 +7,8 @@
 // Require is used to import code from an external file
 import app from '../app';// const app = require('../app');
 // Importing an external dependency
-import debug from 'debug';// const debug = require('debug')('projnotes');
-const Debug = debug('projnotes');
+import Debug from 'debug';// const debug = require('debug')('projnotes');
+const debug = Debug('projnotes');
 // Module that allows to communicate with a client using HTTP protocol
 import http from 'http';// const http = require('http'); 
 
