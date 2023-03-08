@@ -1,5 +1,6 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';// const express = require('express');
+const {Router} = express; // interpolation
+const router = Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => { // Change to an arrow function
@@ -20,4 +21,4 @@ router.get('/author',(req, res)=>{
   res.render('author', author);
 });
 
-module.exports = router;
+export default router; // change export

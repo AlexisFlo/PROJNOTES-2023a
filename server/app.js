@@ -1,18 +1,18 @@
 // Helps to handle http errors
-const createError = require('http-errors');
+import createError from 'http-errors'; // const createError = require('http-errors');
 // Import the express library
-const express = require('express');
+import express from 'express';// const express = require('express');
 // Is a Core-Node library to manage system paths
-const path = require('path');
+import path from 'path';// const path = require('path');
 // Helps to parse client cookies
-const cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser'; // const cookieParser = require('cookie-parser');
 // Library to log http communication
-const logger = require('morgan'); // Change var with const
+import logger from 'morgan'; // const logger = require('morgan'); // Change var with const
 
 // Importing subroutes
-const indexRouter = require('./routes/index'); // Change var with const
-const usersRouter = require('./routes/users');
-const apiRouter = require('./routes/api');
+import indexRouter from './routes/index';// const indexRouter = require('./routes/index'); // Change var with const
+import usersRouter from './routes/users';// const usersRouter = require('./routes/users');
+import apiRouter from './routes/api';// const apiRouter = require('./routes/api');
 
 // We are creating the express instance
 const app = express(); // Change var with let
@@ -54,4 +54,4 @@ app.use((err, req, res, next) => { // Change the function with arrow function
   res.render('error');
 });
 
-module.exports = app;
+export default app; // change export

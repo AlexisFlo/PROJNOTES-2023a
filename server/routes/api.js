@@ -1,7 +1,8 @@
 // Importing Express library
-const express = require('express'); // Change var with let
+import express  from "express";// const express = require('express'); 
 // Creating a Router Instance
-const router = express.Router();
+const { Router } = express; // Interpolation
+const router = Router();
 
 // Creating the route
 router.get('/author', (req, res) => { // Change to an arrow function
@@ -14,4 +15,4 @@ router.get('/author', (req, res) => { // Change to an arrow function
 });
 
 // Exporting the router
-module.exports = router;
+export default router; // change export

@@ -5,11 +5,12 @@
  */
 // Importing the server logic 
 // Require is used to import code from an external file
-const app = require('../app');
+import app from '../app';// const app = require('../app');
 // Importing an external dependency
-const debug = require('debug')('projnotes');
+import debug from 'debug';// const debug = require('debug')('projnotes');
+const Debug = debug('projnotes');
 // Module that allows to communicate with a client using HTTP protocol
-const http = require('http'); // change the word var with const
+import http from 'http';// const http = require('http'); 
 
 /**
  * Get port from environment and store in Express.
@@ -39,7 +40,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  let port = parseInt(val, 10); // Change var with let
+  const port = parseInt(val, 10); // Change var with const
 
   if (isNaN(port)) {
     // named pipe
@@ -63,7 +64,7 @@ function onError(error) {
     throw error;
   }
 
-  let bind = typeof port === 'string' // change var with let
+  const bind = typeof port === 'string' // change var with const
     ? 'Pipe ' + port
     : 'Port ' + port;
 
@@ -87,8 +88,8 @@ function onError(error) {
  */
 
 function onListening() {
-  let addr = server.address(); // Change var with let 
-  let bind = typeof addr === 'string'
+  const addr = server.address(); // Change var with let 
+  const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   // debug('Listening on ' + bind);
