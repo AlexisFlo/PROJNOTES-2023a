@@ -10,9 +10,9 @@ import cookieParser from 'cookie-parser'; // const cookieParser = require('cooki
 import logger from 'morgan'; // const logger = require('morgan'); // Change var with const
 
 // Importing subroutes
-import indexRouter from './routes/index';// const indexRouter = require('./routes/index'); // Change var with const
-import usersRouter from './routes/users';// const usersRouter = require('./routes/users');
-import apiRouter from './routes/api';// const apiRouter = require('./routes/api');
+import indexRouter from '@server/routes/index';// const indexRouter = require('./routes/index'); // Change var with const
+import usersRouter from '@server/routes/users';// const usersRouter = require('./routes/users');
+import apiRouter from '@server/routes/api';// const apiRouter = require('./routes/api');
 
 // We are creating the express instance
 const app = express(); // Change var with let
