@@ -14,6 +14,14 @@ This project will be developed in ECMAScript 6 (ES6) and run on a Node.js runtim
 2. [Repository creation]()
 3. [Creating dedicated Backend directory]()
 4. [Adding Babel]()
-5. [Updating to ES6]()
+5. [Updating to ES6](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Updating-ES6.md)
 6. [Build Script]()
 7. [Babel plugins]()
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
