@@ -22,6 +22,4 @@ This project will be developed in ECMAScript 6 (ES6) and run on a Node.js runtim
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Badges
-
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
