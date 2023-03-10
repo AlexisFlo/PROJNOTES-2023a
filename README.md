@@ -16,8 +16,8 @@ This project will be developed in ECMAScript 6 (ES6) and run on a Node.js runtim
 4. [Adding Babel]()
 5. [Updating to ES6](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Updating-ES6.md)
 6. [Build Script]()
-7. [Babel plugins]()
-8. [Adding a bundler]()
+7. [Babel plugins](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Babel-plugins.md)
+8. [Adding a bundler](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Adding-a-bundler.md)
 
 ## License
 
