@@ -5,13 +5,20 @@ ES6, also referred to as ECMAScript 2015, represents a significant upgrade to th
 
 For this activity we will have to update our code to ES6 (ECMASCRIPT 2015), based on the teacher's repository
 
-## Methods
+## ES6 functions
 
 Arrow functions have a simplified syntax where the "fuction" ckeyword is replaced by an arrow (=>) after the function parameters. Also have some additional features, such as the ability to automatically bind the "this" keyword to the parent scope, which can help simplify code in certain situations.
 
  `import` and `export` are keywords used for importing and exporting modules, respectively. Modules are essentially separate pieces of code that can be imported into other files to provide additional functionality.
  
  Template literals are a new feature that allows for more flexible and dynamic string interpolation in JavaScript. They use backticks (`) instead of single or double quotes to enclose the string, and allow for the inclusion of  placeholders that are evaluated and interpolated at runtime. Can contain expressions, variables, and even functions, making it easier to create complex strings.
+
+## Steps
+
+The first step is search the professor's repository and find the updates of the code.
+After that we can update the functions and interpolation of our code. 
+Only 4 files have been to update.
+
 
 ## Results
 
