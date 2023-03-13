@@ -15,14 +15,16 @@ Arrow functions have a simplified syntax where the "fuction" ckeyword is replace
 
 ## Steps
 
-The first step is search the professor's repository and find the updates of the code.
-After that we can update the functions and interpolation of our code. 
-Only 4 files have been to update.
+1. The first step is to enter the professor's repository 
+2. We compare our code with the professor's code.
+3. Once we find out what the differences are, we can update our code as the professor has it.
+4. We open our project and we go to the .js files and change what we have different. 
+
+The result for this activity you can see below
 
 
 ## Results
 
-The result for this activity you can see below
 
 Before updating the code to match the professor's, I had already modified some imports. However, the only import I did not alter is located in the "www.js" file and this is the following one:
 
