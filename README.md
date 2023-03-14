@@ -18,6 +18,7 @@ This project will be developed in ECMAScript 6 (ES6) and run on a Node.js runtim
 6. [Build Script](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Build-script.md)
 7. [Babel plugins](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Babel-plugins.md)
 8. [Adding a bundler](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Adding-a-bundler.md)
+9. [Webpack Client Dev Server](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Webpack-Client-Dev-Server.md)
 
 ## License
 
