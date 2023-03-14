@@ -1,5 +1,5 @@
-//
-//
+//Configuration file must use ES5 not ES6
+// that's why you will see "requires" not "imports"
 
 // Importing an file routing manager
 const path = require('path');
