@@ -53,6 +53,16 @@ WSL stands for "Windows Subsystem for Linux" (*Subsistema de Windows para Linux*
 5. Run ```nvm install --lts``` to install Node.js LTS.
 6. Run `node --version` to verify that it installed correctly.
 
+To start working on a project locally in Ubuntu, we must follow these steps in the terminal:
+ 1. Create a folder named *PROJNOTES-2023a* using the command `mkdir <folder name>`.
+ 2. Verify that the folder was created successfully using the comand `ls`
+ 3. Enter the newly created folder using the command `cd <folder name>`.
+ 4. Open Visual Studio Code using the command `code .`
+
+ This way, we can work on our project locally.
+
+ If we want to work remotely using GitHub Codespaces, we first need to [create a repository](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Repository-creation.md) in our GitHub account. Inside Codespaces, we can view our first files, such as **README.md**, where we can add the project description, information about ourselves, and links to our project notes, where we will describe the project's progress. To have these changes locally, we need to clone our repository using the following command in our Ubuntu terminal ```git clone <repository url>```.
+
 ## Results
 The results obtained from this are instructions on how to prepare a computer for a project. The requirements include installing WSL (if using Windows 10 or 11), Git, Node.js, and having a GitHub account. The guide then provides steps for installing WSL, including enabling the necessary features and selecting the Ubuntu distribution. After WSL is set up, the guide provides steps for installing Git and updating user information, followed by a Node.js installation guide using the NVM package manager. The guide concludes with a command to verify that Node.js is installed correctly.
 
