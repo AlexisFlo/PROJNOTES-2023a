@@ -63,6 +63,40 @@ To start working on a project locally in Ubuntu, we must follow these steps in t
 
  If we want to work remotely using GitHub Codespaces, we first need to [create a repository](https://github.com/AlexisFlo/PROJNOTES-2023a/blob/main/class-notes/Repository-creation.md) in our GitHub account. Inside Codespaces, we can view our first files, such as **README.md**, where we can add the project description, information about ourselves, and links to our project notes, where we will describe the project's progress. To have these changes locally, we need to clone our repository using the following command in our Ubuntu terminal ```git clone <repository url>```.
 
+ ### Base Project
+ 
+ **Node.js**
+ As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
+
+ **Web Frameworks**
+ Web frameworks provide tools and libraries to simplify common web development operations. You don't have to use a server-side web framework, but it is strongly advised — it will make your life a lot easier.
+
+**Express**
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+After opening our project, the first thing we will do is run the Express Application Generator.
+We open our terminal, whether in *Visual Studio Code* or *Ubuntu*, verify that we are in the correct directory, and execute the command to start the generation application `npx express-generator <project name> -v hbs`
+
+Once executed, we will have basic Express project with the Handlebars engine. This allows us to have a development starting point for our application. The project will have the following directories:
+- **bin**
+- **public**
+- **routes**
+- **views**
+- **app.js**
+- *package.json*
+
+#### Dependency Installation
+
+We need to install some dependencies, which will be listed in the *package.json* file. The dependencies are: 
+
+- *cookie-parser*
+- *debug*
+- *express*
+- *hbs* 
+- *http-errors*
+- *morgan*
+To start the installation, we run the command `npm i`
+
 ## Results
 The results obtained from this are instructions on how to prepare a computer for a project. The requirements include installing WSL (if using Windows 10 or 11), Git, Node.js, and having a GitHub account. The guide then provides steps for installing WSL, including enabling the necessary features and selecting the Ubuntu distribution. After WSL is set up, the guide provides steps for installing Git and updating user information, followed by a Node.js installation guide using the NVM package manager. The guide concludes with a command to verify that Node.js is installed correctly.
 
@@ -74,8 +108,12 @@ The results obtained from this are instructions on how to prepare a computer for
 - Users sharing their opinions on the usefulness or limitations of WSL, Git, or Node.js, and how they fit into the larger landscape of software development.
 
 ## References 
-[Official WSL Guide in Spanish](https://learn.microsoft.com/es-es/windows/wsl/install)
-[Official Git Guide in English]( https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-[Official Nodejs Guide in English](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
+- [Official WSL Guide in Spanish](https://learn.microsoft.com/es-es/windows/wsl/install)
+- [Official Git Guide in English]( https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Official Nodejs Guide in English](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
+- [Node.js](https://nodejs.org/en/about)
+- [Web Frameworks](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks)
+- [Express.js](https://expressjs.com/)
+
 
 [Back to PROJNOTES2023-a](https://github.com/AlexisFlo/PROJNOTES-2023a)
