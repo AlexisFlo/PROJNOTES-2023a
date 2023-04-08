@@ -18,6 +18,8 @@ WSL stands for "Windows Subsystem for Linux" (*Subsistema de Windows para Linux*
 
 **WSL installation guide**
 1. Search for "Turn Windows features on or off" in the Start menu.
+![App Screenshot](imgages/ADW.png)
+
 2. Click and wait for it load.
 3. Verify that the following features are enabled: *Virtual Machine Platform* and *Windows Subsystem for Linux*.
 4. If any of these features are not enabled, select them and click on "OK".
