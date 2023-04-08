@@ -99,14 +99,25 @@ We need to install some dependencies, which will be listed in the *package.json*
 To start the installation, we run the command `npm i`
 
 ## Results
-The results obtained from this are instructions on how to prepare a computer for a project. The requirements include installing WSL (if using Windows 10 or 11), Git, Node.js, and having a GitHub account. The guide then provides steps for installing WSL, including enabling the necessary features and selecting the Ubuntu distribution. After WSL is set up, the guide provides steps for installing Git and updating user information, followed by a Node.js installation guide using the NVM package manager. The guide concludes with a command to verify that Node.js is installed correctly.
+The given text outlines the requirements and installation guides for starting a project using Node.js and Express web framework. The requirements include installing Windows Terminal, WSL, Git, Node.js, and having a GitHub account. The guide also provides instructions for installing and configuring each of these components, including enabling WSL, installing Git, and Node.js using NVM. Once these components are installed, the guide outlines the steps to create a local project directory and generate a basic Express project using the Handlebars engine using the Express Application Generator. Finally, the guide lists the required dependencies for the project and provides the command to install them using npm.
 
 ## Discussions
 
-- Users asking for clarification on certain steps, especially if they are not familiar with the tools or commands used.
-- Users sharing their experiences with installing WSL or Git on different versions of Windows or Linux distributions, and offering advice or troubleshooting tips.
-- Users discussing alternative tools or methods for setting up a development environment, such as using a virtual machine instead of WSL or using a different package manager to install Node.js.
-- Users sharing their opinions on the usefulness or limitations of WSL, Git, or Node.js, and how they fit into the larger landscape of software development.
+- Importance of having the necessary tools installed: The project requirements include installing various tools such as Windows Terminal, WSL, Git, Node.js, and having a GitHub account. One could discuss the importance of having the necessary tools installed and how it could help in the smooth functioning of the project.
+
+- WSL and its usage: WSL stands for "Windows Subsystem for Linux" and allows running Linux applications directly on Windows without the need for a virtual machine or booting the Linux operating system. One could discuss the benefits of using WSL and its usage in the project.
+
+- Git and its importance: Git is a version control system that helps in tracking changes made to the codebase. One could discuss the importance of using Git in the project and how it could help in maintaining the codebase.
+
+- Node.js and its usage: Node.js is an asynchronous event-driven JavaScript runtime, designed to build scalable network applications. One could discuss the benefits of using Node.js and its usage in the project.
+
+- Express framework: Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. One could discuss the benefits of using the Express framework and how it could help in building web applications.
+
+- Dependency Installation: The project requires the installation of various dependencies such as cookie-parser, debug, express, hbs, http-errors, morgan. One could discuss the importance of installing the required dependencies and how it could help in building the project.
+
+- Using GitHub Codespaces: The project allows working remotely using GitHub Codespaces. One could discuss the benefits of using GitHub Codespaces and how it could help in collaborating and working remotely on the project.
+
+- Project setup: The project setup includes creating a folder, installing the necessary dependencies, and generating an Express application using the Handlebars engine. One could discuss the importance of following the project setup and how it could help in starting the development process.
 
 ## References 
 - [Official WSL Guide in Spanish](https://learn.microsoft.com/es-es/windows/wsl/install)
