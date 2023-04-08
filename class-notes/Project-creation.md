@@ -57,7 +57,11 @@ WSL stands for "Windows Subsystem for Linux" (*Subsistema de Windows para Linux*
 The results obtained from this are instructions on how to prepare a computer for a project. The requirements include installing WSL (if using Windows 10 or 11), Git, Node.js, and having a GitHub account. The guide then provides steps for installing WSL, including enabling the necessary features and selecting the Ubuntu distribution. After WSL is set up, the guide provides steps for installing Git and updating user information, followed by a Node.js installation guide using the NVM package manager. The guide concludes with a command to verify that Node.js is installed correctly.
 
 ## Discussions
-TODO: Student will write this part
+
+- Users asking for clarification on certain steps, especially if they are not familiar with the tools or commands used.
+- Users sharing their experiences with installing WSL or Git on different versions of Windows or Linux distributions, and offering advice or troubleshooting tips.
+- Users discussing alternative tools or methods for setting up a development environment, such as using a virtual machine instead of WSL or using a different package manager to install Node.js.
+- Users sharing their opinions on the usefulness or limitations of WSL, Git, or Node.js, and how they fit into the larger landscape of software development.
 
 ## References 
 [Official WSL Guide in Spanish](https://learn.microsoft.com/es-es/windows/wsl/install)
