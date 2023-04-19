@@ -39,17 +39,20 @@ if (nodeEnviroment === 'development') {
   // Setting up the HMR (Hot Module Replacement)
   webpackConfig.entry = [
     'webpack-hot-middleware/client?reload=true&timeout=1000',
-    webpackConfig.entry],
-    // Creating the bundler
-    const bundle = webpack(webpackConfig);
-    // Enabling the webpack middleware
-    app.use(WebpackDevMiddleware(bundle, {
-      publicPath: webpackConfig.output.publicPath
-    }));
-    // Enabling webpack HMR
-    app.use(WebpackHotMiddleware(bundle));
-}else{
-  console.log("🏬 Ejecutando el modo producción");
+    webpackConfig.entry,
+  ];
+  // Creating the bundler
+  const bundle = webpack(webpackConfig);
+  // Enabling the webpack middleware
+  app.use(
+    WebpackDevMiddleware(bundle, {
+      publicPath: webpackConfig.output.publicPath,
+    })
+  );
+  // Enabling webpack HMR
+  app.use(WebpackHotMiddleware(bundle));
+} else {
+  console.log('🏬 Ejecutando el modo producción');
 }
 
 // view engine setup
@@ -71,15 +74,15 @@ app.use(express.static(path.join(__dirname, '../public'))); // app.use(express.s
 // Registering routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api',apiRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => { // Change the function with arrow function
+app.use((req, res, next) => {
   next(createError(404));
 });
 
 // error handler
-app.use((err, req, res, next) => { // Change the function with arrow function
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
