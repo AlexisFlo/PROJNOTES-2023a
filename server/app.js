@@ -1,21 +1,21 @@
 // Helps to handle http errors
-import createError from 'http-errors'; // const createError = require('http-errors');
+import createError from 'http-errors';
 // Import the express library
-import express from 'express';// const express = require('express');
+import express from 'express';
 // Is a Core-Node library to manage system paths
-import path from 'path';// const path = require('path');
+import path from 'path';
 // Helps to parse client cookies
-import cookieParser from 'cookie-parser'; // const cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser';
 // Library to log http communication
-import logger from 'morgan'; // const logger = require('morgan'); // Change var with const
+import logger from 'morgan';
 
 // Importing subroutes
-import indexRouter from '@server/routes/index';// const indexRouter = require('./routes/index'); // Change var with const
-import usersRouter from '@server/routes/users';// const usersRouter = require('./routes/users');
-import apiRouter from '@server/routes/api';// const apiRouter = require('./routes/api');
+import indexRouter from '@server/routes/index';
+import usersRouter from '@server/routes/users';
+import apiRouter from '@server/routes/api';
 
 // Setting Webpack Modules
-import webpack  from 'webpack';
+import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 
@@ -26,19 +26,20 @@ import webpackConfig from '../webpack.dev.config';
 const app = express(); // Change var with let
 
 // Get the execution mode
-const nodeEnviroment = process.env.NODE_ENV || 'production'
+const nodeEnviroment = process.env.NODE_ENV || 'production';
 
 // Deciding if we add webpack middleware or not
-if(nodeEnviroment === 'development'){
+if (nodeEnviroment === 'development') {
   // Start Webpack dev server
-  console.log("🏗 Ejecutando el modo desarrollo");
+  console.log('🏗 Ejecutando el modo desarrollo');
   // Adding the key mode with its value "development"
   webpackConfig.mode = nodeEnviroment;
   // Setting the port
   webpackConfig.devServer.port = process.env.PORT;
   // Setting up the HMR (Hot Module Replacement)
   webpackConfig.entry = [
-    "webpack-hot-middleware/client?reload=true&timeout=1000", webpackConfig.entry];
+    'webpack-hot-middleware/client?reload=true&timeout=1000',
+    webpackConfig.entry],
     // Creating the bundler
     const bundle = webpack(webpackConfig);
     // Enabling the webpack middleware
