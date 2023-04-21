@@ -7,7 +7,7 @@ import path from 'path';
 // Helps to parse client cookies
 import cookieParser from 'cookie-parser';
 // Library to log http communication
-import logger from 'morgan';
+import morgan from 'morgan';
 
 // Importing subroutes
 import indexRouter from '@server/routes/index';
@@ -21,6 +21,10 @@ import WebpackHotMiddleware from 'webpack-hot-middleware';
 
 // Importing webpack Configuration
 import webpackConfig from '../webpack.dev.config';
+
+// Creando varible del directorio raiz
+// eslint-disable-next-line
+global["__rootdir"] = path.resolve(process.cwd());
 
 // We are creating the express instance
 const app = express(); // Change var with let
@@ -61,7 +65,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Log all received requests
-app.use(logger('dev'));
+app.use(morgan('dev'));
 // Parse request data into json
 app.use(express.json());
 // Decode url info
