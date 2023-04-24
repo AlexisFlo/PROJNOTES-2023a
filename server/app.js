@@ -22,9 +22,12 @@ import WebpackHotMiddleware from 'webpack-hot-middleware';
 // Importing webpack Configuration
 import webpackConfig from '../webpack.dev.config';
 
+// Importing winston logger
+import log from './config/winston';
+
 // Creando varible del directorio raiz
 // eslint-disable-next-line
-global["__rootdir"] = path.resolve(process.cwd());
+global['__rootdir'] = path.resolve(process.cwd());
 
 // We are creating the express instance
 const app = express(); // Change var with let
@@ -64,8 +67,9 @@ if (nodeEnviroment === 'development') {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// Registering middlewares
 // Log all received requests
-app.use(morgan('dev'));
+app.use(morgan('combined', { stream: log.stream }));
 // Parse request data into json
 app.use(express.json());
 // Decode url info
@@ -82,6 +86,7 @@ app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
+  log.info(`404 Pagina no encontrada ${req.method} ${req.originaUrl}`);
   next(createError(404));
 });
 
@@ -93,6 +98,7 @@ app.use((err, req, res) => {
 
   // render the error page
   res.status(err.status || 500);
+  log.error(`${err.status || 500} - ${err.message}`);
   res.render('error');
 });
 
