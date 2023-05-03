@@ -18,6 +18,8 @@ import apiRouter from '@server/routes/api';
 import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
+// Importando el configurador de plantillas
+import configTemplateEngine from './config/templateEngine';
 
 // Importing webpack Configuration
 import webpackConfig from '../webpack.dev.config';
@@ -62,10 +64,8 @@ if (nodeEnviroment === 'development') {
   console.log('🏬 Ejecutando el modo producción');
 }
 
-// view engine setup
-// We are declaring the localization of the views
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+// 👁️⚙️ view engine setup 👁️⚙️
+configTemplateEngine(app);
 
 // Registering middlewares
 // Log all received requests
@@ -77,7 +77,7 @@ app.use(express.urlencoded({ extended: false }));
 // Parse client cookies into json
 app.use(cookieParser());
 // Set up the static file server
-app.use(express.static(path.join(__dirname, '../public'))); // app.use(express.static(ruta))
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Registering routes
 app.use('/', indexRouter);
