@@ -2,13 +2,13 @@
 // GET "/"
 // GET "/index"
 const home = (req, res) => {
-  const iconSet = ['⭐', '🖖', '🐈', '🔨', '😎', '🎶'];
+  const iconSet = ['⭐', '🖖', '🐈', '👽', '😎', '🎶', '🔱', '💻', '🐸'];
   const icon = iconSet[Math.floor(Math.random() * iconSet.length)];
-  res.render('index', { title: 'DWPCII-2023A', icon });
+  res.render('home/homeView', { icon });
 };
 
 const about = (req, res) => {
-  res.send(' ⚠️ UNDER CONSTRUCTION: GET /about ⚠️ ');
+  res.render('home/aboutView');
 };
 export default {
   home,
