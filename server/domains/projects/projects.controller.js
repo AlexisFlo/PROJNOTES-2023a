@@ -4,9 +4,9 @@ const projects = (req, res) => {
   res.send(' ⚠️ UNDER CONSTRUCTION: GET /projects ⚠️ ');
 };
 
-// GET "/porjects/add_box"
+// GET "/porjects/add"
 const add = (req, res) => {
-  res.send(' ⚠️ UNDER CONSTRUCTION: GET /projects/add ⚠️ ');
+  res.render('project/addView');
 };
 
 // Controlador user
