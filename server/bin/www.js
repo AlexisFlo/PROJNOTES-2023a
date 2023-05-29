@@ -95,7 +95,7 @@ function startServer(dbConnection) {
     const dbConnection = await mongooseOdm.connect();
     if (dbConnection) {
       log.info(
-        `🛢️ Conexión exitosa a la base de datos: ${configKeys.mongoUrl} 🛢️`,
+        `🛢️ Conexión exitosa a la base de datos: ${configKeys.mongoUrl} 🛢️`
       );
       startServer(dbConnection);
     }
