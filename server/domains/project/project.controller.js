@@ -1,12 +1,13 @@
 // Importing winston logger
 import log from '../../config/winston';
-// Action methods
-// GET "/project/list"
-const project = (req, res) => {
-  res.send(' ⚠️ UNDER CONSTRUCTION: GET /project ⚠️ ');
+
+// Actions methods
+// GET "/project"
+const showDashboard = (req, res) => {
+  res.send('⚠️ UNDER CONSTRUCTION: GET /project ⚠️');
 };
 
-// GET "/porject/add"
+// GET "/project/add"
 const add = (req, res) => {
   res.render('project/addView');
 };
@@ -29,23 +30,22 @@ const addPost = (req, res) => {
       workingPrev[`${curr.path}`] = curr.message;
       return workingPrev;
     }, {});
-    res.status(422).json({ project, errorModel });
-  } else {
-    // En caso de que pase la validación
-    // Se desestructura la información
-    // de la peticion
-    const { validData: project } = req;
-    // Se contesta la información
-    // del proyecto al cliente
-    log.info('Se entrega al cliente información del proyecto cargado');
-    res.status(200).json(project);
+    return res.status(422).render('project/addView', { project, errorModel });
   }
+  // En caso de que pase la validación
+  // Se desestructura la información
+  // de la peticion
+  const { validData: project } = req;
+  // Se contesta la información
+  // del proyecto al cliente
+  log.info('Se entrega al cliente información del proyecto cargado');
+  return res.status(200).json(project);
 };
 
 // Controlador user
 export default {
-  // Action methods
-  project,
+  // Action Methods
+  showDashboard,
   add,
   addPost,
 };
