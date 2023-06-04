@@ -13,7 +13,7 @@ const router = new Router();
 
 // Enrutamos
 // GET '/user/listp'
-router.get('/', projectController.project);
+router.get('/', projectController.showDashboard);
 
 // GET '/project/add
 router.get('/add', projectController.add);
