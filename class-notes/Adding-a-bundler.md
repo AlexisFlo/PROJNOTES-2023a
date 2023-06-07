@@ -26,13 +26,16 @@ The last one is so important when we are development
 
 A script with the name dev-c is created, this script will have the code shown below:
   
-  "scripts": {
+  ```bash
+    "scripts": {
     "start": "PORT=3000 APP_URL='http://localhost' DEBUG=projnotes node ./dist/bin/www",
     "dev": "NODE_ENV=development PORT=3000 APP_URL='http://localhost' DEBUG=projnotes babel-watch --watch ./server/views ./server/bin/www",
     "devc" : "NODE_ENV=development webpack serve --config ./webpack.config.js --mode development",
     "build": "npm run clean && babel ./server --out-dir dist --copy-files",
     "clean": "rm -rf dist"
   }
+```
+  
 
   To test the webpack configuration, a folder called client is created, inside this a file called index.js is created, this file will contain the code shown below:
 
