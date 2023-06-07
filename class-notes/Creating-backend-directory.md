@@ -23,7 +23,11 @@ When you run this code and make a request to the server, you should see the requ
 
 ## Results
 
+After completing the previous steps, a specific directory is obtained for the Backend, allowing for a better project structure, making it look more professional.
+
 ## Discussions
+
+It is necesary to remember that when moving these folders and files within the Server, the paths in some files must be modified. It is also important that when running in Dev mode, it is necessary to modify as mentioned above
 ## References
 
 [Express](https://developer.mozilla.org/es/docs/Learn/Server-side/Express_Nodejs/Introduction)

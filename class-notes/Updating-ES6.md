@@ -40,5 +40,9 @@ In the api.js file, the three lines of code that have been updated are as follow
 
 The lines of code updated in api.js hace also been updated in both the user and index files
 
+## Discussions
+
+A more modern code was obtained, which is ES6. In this new update, it is possible to reduce a quantity of code, making it more efficient. The changes added were Interpolation, Import, Export, Arrow functions, and Initialization of variables.
+
 
 [Back to PROJNOTES2023-a](https://github.com/AlexisFlo/PROJNOTES-2023a)
