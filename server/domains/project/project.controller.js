@@ -52,10 +52,12 @@ const addPost = async (req, res) => {
     // Se contesta la información del proyecto al cliente
     log.info(`Se carga proyecto ${savedProject}`);
     log.info('Se redirecciona el sistema a /project');
+    // Agregando mensaje de flash
+    req.flash('successMessage', 'Proyecto agregado con exito');
     return res.redirect('/project');
   } catch (error) {
     log.error(
-      'ln 53 project.controller: Error al guardar proyecto en la base de datos',
+      'ln 53 project.controller: Error al guardar proyecto en la base de datos'
     );
     return res.status(500).json(error);
   }
@@ -121,6 +123,7 @@ const editPut = async (req, res) => {
     // Se salvan los cambios
     log.info(`Actualizando proyecto con id: ${id}`);
     await project.save();
+    req.flash('successMessage', 'Proyecto editado con exito');
     return res.redirect(`/project/edit/${id}`);
   } catch (error) {
     log.error(`Error al actualizar proyecto con id: ${id}`);
@@ -135,6 +138,8 @@ const deleteProject = async (req, res) => {
   // Usando el modelo para borrar el proyecto
   try {
     const result = await ProjectModel.findByIdAndRemove(id);
+    // Agregando mensaje de flash
+    req.flash('successMessage', 'Proyecto borrado con exito');
     return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json(error);
