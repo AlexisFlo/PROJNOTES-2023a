@@ -11,7 +11,7 @@ const logout = (req, res) => {
 
 // GET "/user/register"
 const register = (req, res) => {
-  res.send(' ⚠️ UNDER CONSTRUCTION: GET /user/register ⚠️ ');
+  res.render('user/registerView');
 };
 
 // Controlador user
