@@ -22,4 +22,4 @@ const signUpGetter = (req) => {
 
 const signUp = { shape: signUpSchema, getObject: signUpGetter };
 
-export default { signUp };
+export default signUp;

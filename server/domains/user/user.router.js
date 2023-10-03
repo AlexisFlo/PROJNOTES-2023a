@@ -3,6 +3,8 @@ import { Router } from 'express';
 
 // Importando el controlador
 import userController from './user.controller';
+import Validate from './validate';
+import userTokenValidator from './user.token.validator';
 
 // Creando una instancia del enrutador
 const router = new Router();
@@ -16,6 +18,12 @@ router.get('/logout', userController.logout);
 
 // GET '/user/register
 router.get('/register', userController.register);
+
+router.get(
+  '/confirm/:token',
+  Validate(userTokenValidator.token),
+  userController.confirm
+);
 
 // Exporto este tramo de ruta
 export default router;

@@ -18,6 +18,13 @@ const register = (req, res) => {
   res.render('user/registerView');
 };
 
+const confirm = (req, res) => {
+  const { validData, errorData } = req;
+  if (errorData) return res.json(errorData);
+  const { token } = validData;
+  return res.send(`Token valido: ${token}`);
+};
+
 // POST "/user/register"
 const registerUser = async (req, res) => {
   const { validData, errorData } = req;
@@ -37,7 +44,7 @@ const registerUser = async (req, res) => {
     winston.info('Se manda a generar la vista "user/registrationSuccessful"');
     return res.render('user/registrationSuccessful', {
       ...viewModel,
-      backgroundColor: 'bg-success',
+      backgroundColor: 'cyan darken-2',
     });
   } catch (error) {
     return res.json(error);
@@ -51,4 +58,5 @@ export default {
   logout,
   register,
   registerUser,
+  confirm,
 };

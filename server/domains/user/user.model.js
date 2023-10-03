@@ -81,7 +81,8 @@ UserSchema.post('save', async function sendConfirmationMail() {
         mail: this.mail,
         token: this.emailConfirmationToken,
       },
-      `Estimado ${this.firstName} ${this.lastname} para confirmar su cuenta haga click en el enlace de dicho correo}`
+      `Estimado ${this.firstName} ${this.lastname} para validar tu cuenta debes hacer clic en el siguiente
+      enlace: ${configKeys.homeUrl}/user/confirm/${this.token}`
     );
     if (!info) return winston.info('No se pudo enviar el correo');
     winston.info('🎉 Correo enviado con exito');
