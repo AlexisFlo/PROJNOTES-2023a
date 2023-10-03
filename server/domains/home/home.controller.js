@@ -10,7 +10,14 @@ const home = (req, res) => {
 const about = (req, res) => {
   res.render('home/aboutView');
 };
+
+const test = (_, res) =>
+  res.render('user/registrationSuccessful', {
+    backgroundColor: 'cyan darken-3',
+  });
+
 export default {
   home,
   about,
+  test,
 };
