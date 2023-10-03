@@ -3,7 +3,7 @@ import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import rndString from 'randomstring';
 import winston from 'winston/lib/winston/config';
-import MailSender from '@server/services/mial';
+import MailSender from '@server/services/mail';
 import configKeys from '@server/config/configKeys';
 
 const { Schema } = mongoose;
@@ -75,7 +75,12 @@ UserSchema.post('save', async function sendConfirmationMail() {
   try {
     const info = await mailSender.sendMail(
       'confirmation',
-      { user: this.firstName, lastname: this.lastname, mail: this.mail },
+      {
+        user: this.firstName,
+        lastname: this.lastname,
+        mail: this.mail,
+        token: this.emailConfirmationToken,
+      },
       `Estimado ${this.firstName} ${this.lastname} para confirmar su cuenta haga click en el enlace de dicho correo}`
     );
     if (!info) return winston.info('No se pudo enviar el correo');
