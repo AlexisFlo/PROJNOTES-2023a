@@ -100,6 +100,17 @@ UserSchema.methods = {
   generateComfirmationToken() {
     return rndString.generate(64);
   },
+  async activate() {
+    await this.updateOne({
+      emailConfirmationToken: null,
+      updatedAt: new Date(),
+      emailConfirmedAt: new Date(),
+    }).exec();
+  },
+};
+
+UserSchema.staticsfindByToken = async function findByToken(token) {
+  return this.findOne({ emailConfirmationToken: token });
 };
 
 export default mongoose.model('user', UserSchema);
