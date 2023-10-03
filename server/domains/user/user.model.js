@@ -107,6 +107,10 @@ UserSchema.methods = {
       emailConfirmedAt: new Date(),
     }).exec();
   },
+  // Autentica con el password
+  authenticateUser(password) {
+    return bcrypt.compareSync(password, this.password);
+  },
 };
 
 UserSchema.staticsfindByToken = async function findByToken(token) {
