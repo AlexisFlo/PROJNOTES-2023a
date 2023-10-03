@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 import rndString from 'randomstring';
+import winston from 'winston/lib/winston/config';
+import MailSender from '@server/services/mial';
+import configKeys from '@server/config/configKeys';
 
 const { Schema } = mongoose;
 
@@ -35,6 +38,10 @@ const UserSchema = new Schema({
     type: String,
     default: 'https://img.icons8.com/fluent/48/000000/user-male-circle.png',
   },
+  emailConfirmationToken: String,
+  createdAt: Date,
+  updatedAt: Date,
+  emailConfirmedAt: Date,
 });
 
 // HOOKS
@@ -49,7 +56,36 @@ UserSchema.pre('save', function presave(next) {
   this.updatedAt = new Date();
   return next();
 });
-
+UserSchema.post('save', async function sendConfirmationMail() {
+  const options = {
+    host: configKeys.smtpHost,
+    port: configKeys.smptPort,
+    secure: false,
+    auth: {
+      user: configKeys.mailUsername, // generated ethereal user
+      pass: configKeys.mailPassword, // generated ethereal password
+    },
+  };
+  const mailSender = new MailSender(options);
+  mailSender.mail = {
+    from: 'L191130053@gamadero.tecnm.mx',
+    to: this.mail,
+    subject: 'Account confirmation',
+  };
+  try {
+    const info = await mailSender.sendMail(
+      'confirmation',
+      { user: this.firstName, lastname: this.lastname, mail: this.mail },
+      `Estimado ${this.firstName} ${this.lastname} para confirmar su cuenta haga click en el enlace de dicho correo}`
+    );
+    if (!info) return winston.info('No se pudo enviar el correo');
+    winston.info('🎉 Correo enviado con exito');
+    return info;
+  } catch (error) {
+    winston.error(`🚨ERROR al enviar correo: ${error.message}`);
+    return null;
+  }
+});
 // METODOS
 UserSchema.methods = {
   hashPassword(password) {

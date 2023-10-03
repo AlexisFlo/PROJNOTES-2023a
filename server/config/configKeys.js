@@ -15,4 +15,8 @@ export default {
   port: process.env.PORT || '3000',
   ip: process.env.IP,
   mongoUrl: process.env.DEV_DATABASE_URL,
+  smtpHost: process.env.SMPT_HOST,
+  smptPort: process.env.SMTP_PORT,
+  mailUsername: process.env.MAIL_USERNAME,
+  mailPassword: process.env.MAIL_PASSWORD,
 };
