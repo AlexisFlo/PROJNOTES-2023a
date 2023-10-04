@@ -1,26 +1,26 @@
-<!-- Dropdow para menu "Projectos" -->
+<!-- Se crea una estructura Dropdow -->
 <ul id="dropdownMenu" class="dropdown-content">
   <li>
-    <a href="/project">
+    <a href="/projects">
       <i class="large material-icons" style="margin: 2px;">
         list
       </i>
-      Listar
+      Listar Proyectos
     </a>
   </li>
   <li class="divider"></li>
   <li>
-    <a href="/project/add">
+    <a href="/projects/add">
       <i class="large material-icons" style="margin: 2px;">
         add_box
       </i>
-      Crear
+      Crear Proyecto
     </a>
   </li>
 </ul>
 
-<!-- Dropdow para menu "Usuarios" -->
 <ul id="user-dropdown-menu" class="dropdown-content">
+  {{#unless user}}
   <li>
     <a href="/user/login">
       <i class="large material-icons" style="margin: 2px;">
@@ -38,6 +38,7 @@
       Registrarse
     </a>
   </li>
+  {{else}}
   <li>
     <a href="/user/logout">
       <i class="large material-icons" style="margin: 2px;">
@@ -46,9 +47,9 @@
       Cerrar sesion
     </a>
   </li>
+  {{/unless}}
 </ul>
-
-<!-- Inicia marcado de barra de navegación -->
+<!-- Inicia barra de navegación -->
 <nav class="teal darken-4">
   <div class="container">
     <div class="nav-wrapper">
@@ -76,7 +77,7 @@
         <!-- Dropdown Trigger -->
         <li>
           <a class="dropdown-trigger" href="#!" data-target="dropdownMenu">
-            Proyectos
+            Acciones
             <i class="material-icons right">
               arrow_drop_down
             </i>
@@ -109,7 +110,7 @@
         </li>
         <li class="divider"></li>
         <li>
-          <a href="/project">
+          <a href="/projects">
             <i class="large material-icons left">
               list
             </i>
@@ -117,7 +118,7 @@
           </a>
         </li>
         <li>
-          <a href="/project/add">
+          <a href="/projects/add">
             <i class="large material-icons left">
               add_box
             </i>
@@ -125,6 +126,7 @@
           </a>
         </li>
         <li class="divider"></li>
+        {{#unless user}}
         <li>
           <a href="/user/login">
             <i class="material-icons left">
@@ -141,6 +143,7 @@
             Registrarse
           </a>
         </li>
+        {{else}}
         <li>
           <a href="/user/logout">
             <i class="material-icons left">
@@ -149,6 +152,7 @@
             Cerrar Sesión
           </a>
         </li>
+        {{/unless}}
         <li class="divider"></li>
         <li>
           <a href="/about">
