@@ -19,20 +19,20 @@ const UserSchema = new Schema({
   mail: {
     type: String,
     unique: true,
-    required: [true, 'El correo es obligatorio'],
+    required: [true, 'Es necesario ingresar un E-mail'],
     trim: true,
-    validade: {
+    validate: {
       validator(mail) {
         return validator.isEmail(mail);
       },
-      message: '{VALUE} no es un correo valido',
+      message: '{VALUE} no es un E-mail valido!',
     },
   },
   password: {
     type: String,
     required: [true, 'Es necesario ingresar una contraseña'],
     trim: true,
-    minlength: [6, 'La contraseña debe tener al menos 6 caracteres'],
+    minlength: [6, 'Necesitas ingresar un password con mas caracteres'],
   },
   image: {
     type: String,
@@ -42,21 +42,28 @@ const UserSchema = new Schema({
   createdAt: Date,
   updatedAt: Date,
   emailConfirmedAt: Date,
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // HOOKS
-// Se ejecuta antes de guardar en la base de datos
-
 UserSchema.pre('save', function presave(next) {
-  // Si el usuario no esta modificado
+  // Verificando si se ha modificado el password
+  // En el momento de salvar el documento
   if (this.isModified('password')) {
+    // Encriptando el password
     this.password = this.hashPassword(this.password);
   }
+  // Grabando fechas
+  this.emailConfirmationToken = this.generateConfirmationToken();
   this.createdAt = new Date();
   this.updatedAt = new Date();
   return next();
 });
 UserSchema.post('save', async function sendConfirmationMail() {
+  // Creating Mail options
   const options = {
     host: configKeys.smtpHost,
     port: configKeys.smptPort,
@@ -67,8 +74,9 @@ UserSchema.post('save', async function sendConfirmationMail() {
     },
   };
   const mailSender = new MailSender(options);
+  // Configuring mail data
   mailSender.mail = {
-    from: 'L191130053@gamadero.tecnm.mx',
+    from: 'l191130053@gamadero.tecnm.mx',
     to: this.mail,
     subject: 'Account confirmation',
   };
@@ -80,11 +88,13 @@ UserSchema.post('save', async function sendConfirmationMail() {
         lastname: this.lastname,
         mail: this.mail,
         token: this.emailConfirmationToken,
+        host: configKeys.homeUrl,
       },
-      `Estimado ${this.firstName} ${this.lastname} para validar tu cuenta debes hacer clic en el siguiente
+      `Estimado ${this.firstName} ${this.lastname} 
+      para validar tu cuenta debes hacer clic en el siguiente
       enlace: ${configKeys.homeUrl}/user/confirm/${this.token}`
     );
-    if (!info) return winston.info('No se pudo enviar el correo');
+    if (!info) return winston.info('😭 No se pudo enviar el correo');
     winston.info('🎉 Correo enviado con exito');
     return info;
   } catch (error) {
@@ -92,14 +102,18 @@ UserSchema.post('save', async function sendConfirmationMail() {
     return null;
   }
 });
-// METODOS
+
+// Agregando metodos al esquema
 UserSchema.methods = {
+  // Metodo para encriptar el password
   hashPassword(password) {
-    return bcrypt.hashSync(password, 10);
+    return bcrypt.hashSync(password);
   },
-  generateComfirmationToken() {
+  // Metodo para generar token de autenticacion
+  generateConfirmationToken() {
     return rndString.generate(64);
   },
+  // Metodo para activar el usuario
   async activate() {
     await this.updateOne({
       emailConfirmationToken: null,
@@ -113,8 +127,10 @@ UserSchema.methods = {
   },
 };
 
-UserSchema.staticsfindByToken = async function findByToken(token) {
+// Agregando métodos estáticos al esquema
+UserSchema.statics.findByToken = async function findByToken(token) {
   return this.findOne({ emailConfirmationToken: token });
 };
 
+// 4 Se compila el modelo y se exporta
 export default mongoose.model('user', UserSchema);

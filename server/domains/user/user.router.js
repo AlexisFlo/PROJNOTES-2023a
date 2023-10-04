@@ -28,14 +28,14 @@ router.get('/register', userController.register);
 // GET user/confirm/<token>
 router.get(
   '/confirm/:token',
-  Validate(userTokenValidator.token), // Use the user token validator
+  Validate(userTokenValidator.token),
   userController.confirm
 );
 
 // POST user/register
 router.post(
   '/register',
-  Validate(userValidator.signUp), // Use the user validator
+  Validate(userValidator.signUp),
   userController.registerUser
 );
 
