@@ -1,53 +1,79 @@
-// Action methods
-
-import winston from 'winston/lib/winston/config';
+// Importando Logger
+import winston from '../../config/winston';
+// Importando el modelo usuario
 import User from './user.model';
 
-// GET "/user/login"
+// GET user/login
 const login = (req, res) => {
+  winston.info('Se manda a generar vista "user/login"');
   res.render('user/loginView');
 };
 
-// GET "/user/logout"
+// POST user/logout
 const logout = (req, res) => {
-  res.send(' ⚠️ UNDER CONSTRUCTION: GET /user/logout ⚠️ ');
+  // Passport incrusta en la petición el
+  // método logout
+  req.logout((err) => {
+    if (err) {
+      return res.json(err);
+    }
+    // Creamos mensaje de flash
+    req.flash('successMessage', 'Ha cerrado sesión correctamente');
+    // Redireccionamos al login
+    return res.redirect('/user/loginView');
+  });
 };
 
-// GET "/user/register"
+// GET user/register
 const register = (req, res) => {
+  winston.info('Se manda a generar vista "user/register"');
   res.render('user/registerView');
 };
 
+// GET user/confirm/<token>
 const confirm = async (req, res) => {
+  // Extrayendo datos de validación
   const { validData, errorData } = req;
   if (errorData) return res.json(errorData);
   const { token } = validData;
+  // Buscando si existe un usuario con ese token
   const user = await User.findByToken(token);
   if (!user) {
     return res.send('USER WITH TOKEN NOT FOUND');
   }
-
+  // Activate user
   await user.activate();
-  return res.send(`Usuario: ${user.firstName} Validado}`);
+  return res.send(`Usuario: ${user.firstName} Validado`);
 };
 
-// POST "/user/register"
+// POST user/register
 const registerUser = async (req, res) => {
+  // Extrayendo datos de validación
   const { validData, errorData } = req;
+  // Verificando si hay errores
   if (errorData) {
+    // Respondemos el objeto de error
     return res.json(errorData);
   }
+  // Se crea al usuario
+  // con los datos provistos por el formulario
   try {
-    const { firstName, lastName, email, password } = validData;
-
+    // Se extraen datos validados
+    // del usuario
+    const { firstName, lastname, mail, password } = validData;
+    // 1. Se crea un documento
+    // mediante el método "create" del modelo "User"
     const user = await User.create({
       firstName,
-      lastName,
-      email,
+      lastname,
+      mail,
       password,
     });
+    // Se realiza una conversión a Json
+    // del objeto
     const viewModel = user.toJSON();
-    winston.info('Se manda a generar la vista "user/registrationSuccessful"');
+    winston.info('Se manda a generar vista "user/registrationSuccessful"');
+    // Retornado el objeto usuario
     return res.render('user/registrationSuccessful', {
       ...viewModel,
       backgroundColor: 'cyan darken-2',
@@ -57,9 +83,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-// Controlador user
 export default {
-  // Action methods
   login,
   logout,
   register,

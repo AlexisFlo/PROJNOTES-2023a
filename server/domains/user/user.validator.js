@@ -1,25 +1,37 @@
+// Importando biblioteca de validación
 import * as Yup from 'yup';
 
+// Strong password Regex
+// Reglas del password en Regex
+// export const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+
+// Creando el esquema de validación
 const signUpSchema = Yup.object().shape({
-  firstName: Yup.string().required('El nombre es obligatorio'),
-  lastname: Yup.string().required('El apellido es obligatorio'),
-  mail: Yup.string()
-    .email('El correo no es valido')
-    .required('El correo es obligatorio'),
+  firstName: Yup.string().required('Se requiere ingresar nombre'),
+  lastname: Yup.string().required('Se requiere ingresar apellido'),
+  mail: Yup.string().email().required('Se requiere ingresar un correo valido'),
   password: Yup.string()
     .min(6)
-    .required('Se requiere una contraseña de al menos 6 caracteres'),
-  cpasword: Yup.string().oneOf(
-    [Yup.ref('password'), null],
-    'Las contraseñas no coinciden'
+    .required('Se requiere ingresar password de al menos 6 caracteres'),
+  cpassword: Yup.string().oneOf(
+    [Yup.ref('password')],
+    'Los passwords ingresados no coinciden'
   ),
 });
 
 const signUpGetter = (req) => {
-  const { firstName, lastname, mail, password } = req.body;
-  return { firstName, lastname, mail, password, cpassword: password };
+  // Desestructuramos la informacion
+  const { firstName, lastname, mail, password, cpassword } = req.body;
+  // Se regresa el objeto signup
+  return {
+    firstName,
+    lastname,
+    mail,
+    password,
+    cpassword,
+  };
 };
 
 const signUp = { shape: signUpSchema, getObject: signUpGetter };
 
-export default signUp;
+export default { signUp };
